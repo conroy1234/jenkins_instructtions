@@ -1,0 +1,68 @@
+freestyle project
+1->manage Jenkins
+2->create new Job
+3->give it a name
+4->choose Freestyle project
+5->click ok
+6->select source code Management tab
+7->select Git
+8->Retository URl ->input the git URL
+8->build option ->add build stel->invoke toplevel maven targets-> enter goal such as clean , compile
+
+create a pipeline project in jenkins
+
+1->manage Jenkins
+2->create new Job
+3->give it a name
+4->choose pipeline project
+5->scrole down to the pipeline box
+6->pipeline script
+7->right click on pipeline syntax to get the syntaxs to get sample steps
+8->choose git or what ever option you want to generate
+9->pase the repo URL in the Repository URL 
+to get the syntax
+10->generate pipeline scripts
+if you cant find what you are looking for choose bash script from commit context. such as 
+mvn verify
+11->generate pipeline script
+12->copy and past in your pipeline script rediobutton. 
+13->save
+
+note all pipeline sctipt need to be inside a node
+example 
+
+generate node 
+1 simple Step ->node:Allocate node->Label laben name eg master
+2 generate pipeline script
+
+install and set up cucumber reporting plugin into Jenkins
+1 manage jenkins
+2 manage plugins
+3 click on available tab
+4 search for the cucumber plugin {cucumber report}
+5 install without restart
+6 logout 
+7 log back in 
+8 click on project-> click on configure-> go to pipeline syntac-> sample steps->general build step->cucumber reports
+9->advance option-> will tell you where the targeted folder is->generate script
+10 past in node and save
+11 buil the project then you should see a cucumber report
+
+you can set up stages for each set of executions. eg
+
+nade('master'){
+
+stage('compile'){
+compile script
+}
+
+stage('build'){
+build script
+}
+stage('generate report'){
+report generation script
+}
+
+
+
+}
